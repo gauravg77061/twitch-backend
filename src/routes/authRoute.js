@@ -6,9 +6,9 @@ const authRouter=express.Router();
 const eValidator= expressValidator.createValidator({});
 
 const registerSchema=joi.object({
-    firstName:joi.string().min(6).max(18).required(),
+    firstName:joi.string().min(1).max(18).required(),
     lastName:joi.string().min(1).max(18),
-    userName: joi.string().min(6).max(12).required(),
+    userName: joi.string().min(1).max(12).required(),
     password:joi.string().min(6).max(18).required(),
     emailId:joi.string().min(6).max(18).required(),
 });
