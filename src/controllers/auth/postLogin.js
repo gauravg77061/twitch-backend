@@ -20,7 +20,7 @@ const postLogin=async(req,res)=>{
         //if email id not present throw an error 
 
         if(!user){
-            throw new Error("please sign up");
+            throw new Error('Invalid credentials');
         }
 
         //validating password that user entered
@@ -43,7 +43,7 @@ const postLogin=async(req,res)=>{
         
     } catch (error) {
         console.error(error);
-        return res.status(500).send("Something went wrong, Please try again after sometime");
+        return res.status(500).send(error.message);
     }
 
 }
