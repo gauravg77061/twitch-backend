@@ -28,7 +28,17 @@ const postRegister=async(req,res)=>{
         })
 
         const savedUser=await user.save();
-        res.status(200).send("User added successfully");
+
+        // getting this token from User model where I am creating JWT sign() function
+        const token=await user.getJwt();
+
+
+        //putting this tokeninto cookie 
+
+        res.cookie("token", token);
+
+
+        return res.status(200).json({data:savedUser})
         
     } catch (error) {
         console.log(error);

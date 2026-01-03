@@ -1,5 +1,8 @@
+const { JsonWebTokenError } = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const validator =require('validator');
+const jwt=require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
   firstName:{
@@ -37,6 +40,14 @@ const UserSchema = new mongoose.Schema({
         required:true
     }
 },{timestamps:true})
+
+UserSchema.methods.getJwt=async function(){
+    const user=this;
+
+    const token=await jwt.sign({_id:user.id},"Twitch@streaming$790");
+
+    return token;
+}
 
 const User=mongoose.model("User",UserSchema);
 
