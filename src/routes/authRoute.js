@@ -17,8 +17,8 @@ const loginSchema=joi.object({
     emailId:joi.string().min(6).max(18).required(),
 });
 
-authRouter.post('/register',eValidator.body(registerSchema),postLogin)
+authRouter.post('/register',eValidator.body(registerSchema),postRegister)
 
-authRouter.post('/login',eValidator.body(loginSchema),postRegister);
+authRouter.post('/login',eValidator.body(loginSchema),postLogin);
 
 module.exports=authRouter;
