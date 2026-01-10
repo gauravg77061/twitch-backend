@@ -38,7 +38,13 @@ const UserSchema = new mongoose.Schema({
     userName:{
         type:String,
         required:true
-    }
+    },
+    channel:{
+        type:mongoose.Schema.Types.ObjectId,ref: "Channel",
+    },
+    followedChannels:[{
+        type:mongoose.Schema.Types.ObjectId,ref:'Channel'
+    }],
 },{timestamps:true})
 
 UserSchema.methods.getJwt=async function(){
