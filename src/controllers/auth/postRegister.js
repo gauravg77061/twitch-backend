@@ -1,4 +1,6 @@
-const User = require("../../models/user")
+const User = require("../../models/user");
+const Channel=require("../../models/channel");
+
 const bcrypt = require("bcrypt");
 
 const postRegister=async(req,res)=>{
@@ -17,6 +19,10 @@ const postRegister=async(req,res)=>{
         //passeord -> encrypted password
         const encryptedPassword = await bcrypt.hash(password,10);
 
+        //create channel for the user
+
+        const newChannel =await Channel.create({});
+
         // creating new User
         const user=new User({
             firstName,
@@ -24,6 +30,7 @@ const postRegister=async(req,res)=>{
             emailId,
             userName,
             password:encryptedPassword,
+            channel:newChannel._id,
             
         })
 

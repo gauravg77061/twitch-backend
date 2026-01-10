@@ -1,6 +1,7 @@
 
 const validator=require('validator');
-const User = require("../../models/user")
+
+const User = require("../../models/user");
 const bcrypt = require("bcrypt");
 
 const postLogin=async(req,res)=>{
