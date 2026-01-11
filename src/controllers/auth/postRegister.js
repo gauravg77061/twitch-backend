@@ -42,6 +42,8 @@ const postRegister=async(req,res)=>{
 
         //putting this tokeninto cookie 
 
+        //res.cookie("token", token);
+
         res.cookie("token", token);
 
 

@@ -4,6 +4,7 @@ const http =require('http');
 const cors=require('cors');
 const cookieParser = require('cookie-parser')
 const authRouter = require('./src/routes/authRoute');
+const settingsRouter=require('./src/routes/settingRoute');
 const channelRouter=require('./src/routes/channelRoute')
 const connectDB = require('./src/config/database');
 const { error } = require('console');
@@ -31,6 +32,7 @@ app.use(cookieParser());
 
 app.use("/api/auth",authRouter);
 app.use("/api/channel",channelRouter);
+app.use("/api/settings",settingsRouter);
 
 
 

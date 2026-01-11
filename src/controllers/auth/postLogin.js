@@ -35,11 +35,14 @@ const postLogin=async(req,res)=>{
             const token= await user.getJwt();
 
            //console.log(token);
-            res.cookie(token);
+           // res.cookie(token);
 
-            return res.status(200).json({user});
+           res.cookie("token", token);
+
+         res.send(user);
 
         }
+      
 
         
     } catch (error) {
