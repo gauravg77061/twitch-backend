@@ -1,11 +1,28 @@
-
+const User=require('../../models/user')
 
 const getChannelSettings=async(req,res)=>{
 
     try {
 
-        //console.log(req.user);
-        const {_id}=req.user;
+        const userId=req.user._id;
+
+        const userData=await User.findById(userId,{
+            channel:1,
+            userName:1,
+        }).populate("channel");
+
+        //console.log(userData);
+
+        return res.status(200).json({
+            id:userData.channel._id,
+            userName:userData.userName,
+            title:userData.channel.title,
+            description:userData.channel.description,
+            avatarUrl:userData.channel.avatarUrl,
+            streamKey:userData.channel.streamKey,
+        })
+
+
         
         res.status(200).send("hello");
         
