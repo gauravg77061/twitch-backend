@@ -2,7 +2,7 @@ const express=require('express');
 const expressValidator=require('express-joi-validation');
 const joi=require('joi');
 
-const {getChannelDetails }= require('../controllers/controllers');
+const {getChannelDetails,getChannels }= require('../controllers/controllers');
 
 const channelRouter = express.Router();
 
@@ -16,7 +16,7 @@ const validator=expressValidator.createValidator({});
 
 
 channelRouter.get('/:channelId',validator.params(channelDetailsSchema),getChannelDetails);
-
+channelRouter.get('',getChannels);
 module.exports=channelRouter;
 
 
