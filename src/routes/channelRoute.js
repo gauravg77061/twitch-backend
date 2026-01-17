@@ -18,7 +18,7 @@ const validator=expressValidator.createValidator({});
 
 channelRouter.get('/:channelId',validator.params(channelDetailsSchema),getChannelDetails);
 channelRouter.get('',getChannels);
-channelRouter.post('/follow',userAuth,postFollowChannel);
+channelRouter.post('/follow',validator.body(channelDetailsSchema),userAuth,postFollowChannel);
 module.exports=channelRouter;
 
 
