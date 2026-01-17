@@ -6,7 +6,8 @@ const getChannelSettings=require('./settings/getChannelSettng')
 const putChannelSettings=require('./settings/putChannelSetting')
 const patchUpdatePassword=require('./settings/patchUpdatePassword')
 const postFollowChannel=require('./channels/postFollowChannel')
+const getFollowedChannel=require('./channels/getFollowedChannel')
 
 module.exports={postLogin,postRegister,getChannelDetails,getChannels,getChannelSettings,
-    putChannelSettings,patchUpdatePassword,postFollowChannel
+    putChannelSettings,patchUpdatePassword,postFollowChannel,getFollowedChannel
 };
