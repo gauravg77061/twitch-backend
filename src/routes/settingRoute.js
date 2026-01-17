@@ -18,6 +18,7 @@ const channelSettingSchema = joi.object({
 
 const passwordSchema=joi.object({
     password:joi.string().min(6).max(18).required(),
+    newPassword:joi.string().min(6).max(18).required(),
 })
 
 settingsRouter.get('/channel',userAuth,getChannelSettings);
