@@ -2,7 +2,7 @@ const express=require('express');
 const expressValidator=require('express-joi-validation');
 const joi=require('joi');
 
-const {getChannelSettings ,putChannelSettings}= require('../controllers/controllers');
+const {getChannelSettings ,putChannelSettings,patchUpdatePassword}= require('../controllers/controllers');
 const userAuth = require('../middlewares/auth.js');
 
 const settingsRouter = express.Router();
@@ -16,9 +16,15 @@ const channelSettingSchema = joi.object({
     avatarUrl:joi.string().uri(),
 })
 
+const passwordSchema=joi.object({
+    password:joi.string().min(6).max(18).required(),
+})
+
 settingsRouter.get('/channel',userAuth,getChannelSettings);
 
 settingsRouter.put('/channel',validator.body(channelSettingSchema),userAuth,putChannelSettings);
+
+settingsRouter.patch('/password',validator.body(passwordSchema),userAuth,patchUpdatePassword);
 
 module.exports=settingsRouter;
 
