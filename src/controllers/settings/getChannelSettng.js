@@ -24,7 +24,7 @@ const getChannelSettings=async(req,res)=>{
 
 
         
-        res.status(200).send("hello");
+      
         
     } catch (error) {
         return res.status(400).send("something wwent wrong",error.message);

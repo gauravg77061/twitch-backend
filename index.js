@@ -33,6 +33,7 @@ app.use(cookieParser());
 app.use("/api/auth",authRouter);
 app.use("/api/channel",channelRouter);
 app.use("/api/settings",settingsRouter);
+app.use('/api/settings',settingsRouter);
 
 
 
