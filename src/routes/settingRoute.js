@@ -27,5 +27,6 @@ settingsRouter.put('/channel',validator.body(channelSettingSchema),userAuth,putC
 
 settingsRouter.patch('/password',validator.body(passwordSchema),userAuth,patchUpdatePassword);
 
+
 module.exports=settingsRouter;
 

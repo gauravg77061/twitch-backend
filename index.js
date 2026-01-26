@@ -6,8 +6,10 @@ const cookieParser = require('cookie-parser')
 const authRouter = require('./src/routes/authRoute');
 const settingsRouter=require('./src/routes/settingRoute');
 const channelRouter=require('./src/routes/channelRoute')
+
 const connectDB = require('./src/config/database');
 const { error } = require('console');
+const profileRouter = require('./src/routes/profileRoute');
 
 
 
@@ -33,7 +35,7 @@ app.use(cookieParser());
 app.use("/api/auth",authRouter);
 app.use("/api/channel",channelRouter);
 app.use("/api/settings",settingsRouter);
-app.use('/api/settings',settingsRouter);
+app.use("/api/profile",profileRouter);
 
 
 

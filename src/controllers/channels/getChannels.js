@@ -11,14 +11,16 @@ const getChannels= async (req,res)=>{
          ).populate("channel");
 
          const channels = users
-          .filter((u) => u.channel.isActive)
+           .filter((u) => u.channel.isActive)
          .map((user) =>{
             return {
                 id:user.channel._id,
                 title:user.channel.title,
                 avatarUrl:user.channel.avatarUrl,
+                description:user.channel.description,
                 userName:user.userName,
                 isOnline:false,
+                streamKey: user.channel.streamKey,  
             };
          })
 
