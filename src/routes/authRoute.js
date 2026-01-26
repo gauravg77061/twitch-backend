@@ -1,7 +1,7 @@
 const express=require('express');
 const joi =require('joi');
 const expressValidator = require("express-joi-validation");
-const {postLogin,postRegister} =require('../controllers/controllers');
+const {postLogin,postRegister, postLogout} =require('../controllers/controllers');
 const authRouter=express.Router();
 const eValidator= expressValidator.createValidator({});
 
@@ -22,5 +22,7 @@ const loginSchema=joi.object({
 authRouter.post('/register',eValidator.body(registerSchema),postRegister)
 
 authRouter.post('/login',eValidator.body(loginSchema),postLogin);
+
+authRouter.post('/logout',postLogout);
 
 module.exports=authRouter;
