@@ -7,8 +7,8 @@ const postFollowChannel=async(req,res)=>{
 
         const {channelId}=req.params; 
 
-        console.log("userId",_id);
-        console.log("channelId",channelId);
+        // console.log("userId",_id);
+        // console.log("channelId",channelId);
 
         const user=await User.findById(_id, {followedChannels:1});
 

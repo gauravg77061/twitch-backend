@@ -47,7 +47,7 @@ const postLogin=async(req,res)=>{
         
     } catch (error) {
         console.error(error);
-        return res.status(500).send(error.message);
+        return res.status(500).send(error);
     }
 
 }
